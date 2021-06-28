@@ -1,0 +1,12 @@
+type Mutation {
+    authenticate(authenticationRequest: AuthenticationRequest) : AuthenticationResponse!
+}
+
+type AuthenticationRequest {
+    userName: String!,
+    password: String!
+}
+
+type AuthenticationResponse {
+    token: String!
+}

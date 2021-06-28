@@ -8,8 +8,8 @@ import java.util.*
 
 @Component
 class UserMutationResolver(val userRepository: UserRepository) : GraphQLMutationResolver {
-    fun newUser(name: String, userName: String): User {
-        val user = User(name, userName)
+    fun newUser(name: String, userName: String, password: String): User {
+        val user = User(name, userName, password)
         user.id = UUID.randomUUID().toString()
         userRepository.save(user)
         return user;

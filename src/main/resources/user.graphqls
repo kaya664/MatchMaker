@@ -9,5 +9,5 @@ type User {
 }
 
 type Mutation {
-    newUser(name: String!, userName: String!) : User!
+    newUser(name: String!, userName: String!, password: String!) : User!
 }

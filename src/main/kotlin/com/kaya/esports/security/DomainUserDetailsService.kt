@@ -1,24 +1,23 @@
 package com.kaya.esports.security
 
 import com.kaya.esports.entity.User
-import com.kaya.esports.repository.UserRepository
+import com.kaya.esports.service.`interface`.IUserService
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Service
-import kotlin.math.log
 
 @Service
-class DomainUserDetailsService(private val userRepository: UserRepository): UserDetailsService {
+class DomainUserDetailsService(private var userService: IUserService) : UserDetailsService {
     override fun loadUserByUsername(userName: String?): UserDetails {
-        print(userName);
-        if(userName != null) {
-            val user = userRepository.findUserByUserName(userName)
-            return createSpringSecurityUser(userName, user)
+        var user: User? = null
+        if (userName != null) {
+            user = userService.findUserByUserName(userName)
         }
-        throw Exception();
-    }
 
-    private fun createSpringSecurityUser(userName: String?, user: User): org.springframework.security.core.userdetails.User {
-        return org.springframework.security.core.userdetails.User(userName, user.password, listOf());
+        if(user != null) {
+            return org.springframework.security.core.userdetails.User(user.userName, user.password, listOf())
+        }
+        throw UsernameNotFoundException(userName)
     }
 }

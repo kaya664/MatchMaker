@@ -11,10 +11,4 @@ import java.util.*
 @Component
 class UserMutationResolver(val userRepository: UserRepository, val passwordEncoder: BCryptPasswordEncoder) : GraphQLMutationResolver {
 
-    fun newUser(name: String, userName: String, password: String): User {
-        val user = User(name, userName, passwordEncoder.encode(password))
-        user.id = UUID.randomUUID().toString()
-        userRepository.save(user)
-        return user;
-    }
 }

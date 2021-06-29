@@ -7,7 +7,14 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserService(private var userRepository: UserRepository): IUserService {
-    override fun findUserByUserName(userName: String): User {
+    override fun findUserByUserName(userName: String): User? {
         return userRepository.findUserByUserName(userName);
+    }
+
+    override fun createNewUser(user: User): User? {
+        if(user != null && findUserByUserName(user.userName) == null) {
+            return userRepository.save(user)
+        }
+        return null
     }
 }

@@ -2,12 +2,14 @@ package com.kaya.esports.entity
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
+import java.util.*
 
 @Document(collection = "user")
 data class User (
-        var name: String,
+        @Id
         var userName: String,
-        var password: String) {
-    @Id
-    var id: String = ""
-}
+        var name: String,
+        var email: String,
+        var password: String,
+        var country: String,
+        var dateOfBirth: Date?)

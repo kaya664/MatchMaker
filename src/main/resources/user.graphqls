@@ -3,17 +3,35 @@ type Query {
 }
 
 type User {
-    id: ID!
-    name: String
-    userName: String
-    password: String
+    userName: String!
+    name: String!
+    email: String!
+    password: String!
+    country: String!
+}
+
+input AuthenticationRequest {
+    userName: String!
+    password: String!
 }
 
 type AuthenticationRepsonse {
     token: String
 }
 
+input RegistrationRequest {
+    userName: String!
+    name: String!
+    email: String!
+    password: String!
+    country: String!
+}
+
+type RegistrationResponse {
+    result: String
+}
+
 type Mutation {
-    newUser(name: String!, userName: String!, password: String!) : User!
-    authenticate(userName: String, password: String) : AuthenticationRepsonse!
+    authenticate(authenticationRequest: AuthenticationRequest!) : AuthenticationRepsonse!
+    register(registrationRequest: RegistrationRequest) : RegistrationResponse
 }

@@ -1,4 +1,6 @@
 package com.kaya.esports.resolvers.response
 
-data class RegistrationResponse(var result: String) {
+import com.kaya.esports.dto.UserDTO
+
+data class RegistrationResponse(var registeredUser: UserDTO) {
 }

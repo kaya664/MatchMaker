@@ -4,6 +4,5 @@ import com.kaya.esports.entity.User
 
 interface IUserService {
     fun findUserByUserName(userName: String): User?
-
-    fun createNewUser(user: User): User?
+    fun createNewUser(user: User): User
 }

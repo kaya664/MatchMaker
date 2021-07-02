@@ -15,7 +15,7 @@ class DomainUserDetailsService(private var userService: IUserService) : UserDeta
         if (userName != null) {
             user = userService.findUserByUserName(userName)
         }
-        print(user != null)
+
         if(user != null) {
             return org.springframework.security.core.userdetails.User(user.userName, user.password, listOf())
         }

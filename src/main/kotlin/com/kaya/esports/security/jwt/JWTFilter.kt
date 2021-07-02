@@ -1,5 +1,6 @@
 package com.kaya.esports.security.jwt
 
+import com.kaya.esports.security.DomainUserDetailsService
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource
@@ -31,7 +32,6 @@ class JWTFilter(private var tokenProvider: TokenProvider) : OncePerRequestFilter
 
         if(!userName.isNullOrEmpty() && !jwt.isNullOrEmpty() && SecurityContextHolder.getContext().authentication == null) {
             if(tokenProvider.validateToken(jwt)) {
-                print("value")
                 var upat = UsernamePasswordAuthenticationToken(userName, null, listOf())
                 upat.details = WebAuthenticationDetailsSource().buildDetails(request)
                 SecurityContextHolder.getContext().authentication = upat

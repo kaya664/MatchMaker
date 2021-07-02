@@ -1,16 +1,9 @@
 package com.kaya.esports.service.request
 
+import com.kaya.esports.dto.TournamentDTO
 import java.math.BigDecimal
 import java.util.*
 
 class TournamentCreationRequest(
-    var name: String,
-    var gameName: String,
-    var paymentType: String,
-    var paymentCurrency: String,
-    var eliminationType: String,
-    var price: BigDecimal?,
-    var status: String,
-    var date: Date?,
-    var explanation: String
+    var tournament: TournamentDTO
 )

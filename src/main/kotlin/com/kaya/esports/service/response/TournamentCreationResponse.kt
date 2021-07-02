@@ -1,4 +1,6 @@
 package com.kaya.esports.service.response
 
-class TournamentCreationResponse(var result: String) {
+import com.kaya.esports.dto.TournamentDTO
+
+class TournamentCreationResponse(var createdTournament: TournamentDTO) {
 }

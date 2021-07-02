@@ -8,14 +8,14 @@ import java.util.*
 @Document(collection = "tournament")
 data class Tournament(
     @Id
-    var id: String,
+    var id: String?,
     var name: String,
     var gameName: String,
     var paymentType: String,
     var paymentCurrency: String,
     var eliminationType: String,
-    var price: BigDecimal?,
+    var price: BigDecimal,
     var status: String,
-    var date: Date?,
+    var date: Date,
     var explanation: String
 )

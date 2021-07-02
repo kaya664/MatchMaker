@@ -2,25 +2,51 @@ package com.kaya.esports.mapper
 
 import com.kaya.esports.dto.TournamentDTO
 import com.kaya.esports.entity.Tournament
+import java.math.BigDecimal
+import java.util.*
+import kotlin.collections.MutableList
+
 
 class TournamentMapper {
     companion object {
-        fun mapTournamentEntityToDTO(tournament: Tournament): TournamentDTO? {
-            if(tournament == null)
-                return null;
-
-            return TournamentDTO(tournament.id, tournament.name, tournament.gameName, tournament.paymentType, tournament.paymentCurrency, tournament.eliminationType, tournament.status, tournament.explanation)
+        fun tournamentEntityToTournamentDTO(tournament: Tournament): TournamentDTO {
+            return TournamentDTO(
+                tournament.id,
+                tournament.name,
+                tournament.gameName,
+                tournament.paymentType,
+                tournament.paymentCurrency,
+                tournament.eliminationType,
+                tournament.status,
+                tournament.explanation
+            )
         }
 
-        fun mapTournamentEntityListToDTOList(tournamentList: List<Tournament>): List<TournamentDTO?>? {
-            if(tournamentList == null)
-                return null;
+        fun tournamentEntityListToTournamentDTOList(tournamentEntityList: MutableList<Tournament?>?): MutableList<TournamentDTO?>? {
+            if (tournamentEntityList == null)
+                return null
 
             var tournamentDTOList: MutableList<TournamentDTO?> = mutableListOf()
-            for (tournament in tournamentList) {
-                tournamentDTOList.add(mapTournamentEntityToDTO(tournament))
+            for (tournamentEntity in tournamentEntityList) {
+                if (tournamentEntity != null)
+                    tournamentDTOList.add(tournamentEntityToTournamentDTO(tournamentEntity))
             }
             return tournamentDTOList
+        }
+
+        fun tournamentDTOToTournamentEntity(tournamentDTO: TournamentDTO): Tournament {
+            return Tournament(
+                tournamentDTO.id,
+                tournamentDTO.name,
+                tournamentDTO.gameName,
+                tournamentDTO.paymentType,
+                tournamentDTO.paymentCurrency,
+                tournamentDTO.eliminationType,
+                BigDecimal.ONE,
+                tournamentDTO.status,
+                Date(),
+                tournamentDTO.explanation
+            )
         }
     }
 }

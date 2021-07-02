@@ -1,48 +1,34 @@
 type Query {
-    tournaments: [Tournament]
+    tournaments: [TournamentDTO]
 }
 
-type Tournament {
-    id: String
-    name: String,
-    gameName: String,
-    paymentType: String,
-    paymentCurrency: String,
-    eliminationType: String,
-    status: String,
-    explanation: String
-}
-
-type User {
-    userName: String!
-    name: String!
-    email: String!
-    password: String!
-    country: String!
-}
-
-input AuthenticationRequest {
-    userName: String!
+input UserInput {
+    userName: ID!
     password: String!
 }
 
-type AuthenticationRepsonse {
+input UserAuthenticationRequest {
+    user: UserInput!
+}
+
+type UserAuthenticationRepsonse {
     token: String
 }
 
-input RegistrationRequest {
-    userName: String!
-    name: String!
-    email: String!
+input UserRegistrationRequest {
+    user: UserInput
+}
+
+type UserDTO {
+    userName: ID!
     password: String!
-    country: String!
 }
 
-type RegistrationResponse {
-    result: String
+type UserRegistrationResponse {
+    registeredUser: UserDTO
 }
 
-input TournamentCreationRequest {
+input TournamentInput {
     name: String!,
     gameName: String!,
     paymentType: String!,
@@ -52,29 +38,58 @@ input TournamentCreationRequest {
     explanation: String!
 }
 
+type TournamentDTO {
+    id: ID!
+    name: String!,
+    gameName: String!,
+    paymentType: String!,
+    paymentCurrency: String!,
+    eliminationType: String!,
+    status: String!,
+    explanation: String!
+}
+
+input TournamentEditDTO {
+    id: ID!
+    name: String!,
+    gameName: String!,
+    paymentType: String!,
+    paymentCurrency: String!,
+    eliminationType: String!,
+    status: String!,
+    explanation: String!
+}
+
+input TournamentCreationRequest {
+    tournament: TournamentInput
+}
+
 type TournamentCreationResponse {
-    result: String
+    createdTournament: TournamentDTO
 }
 
 input TournamentEditRequest {
-    tournamentId: String
-    name: String,
-    gameName: String,
-    paymentType: String,
-    paymentCurrency: String,
-    eliminationType: String,
-    status: String,
-    explanation: String
+    tournament: TournamentEditDTO
 }
 
 type TournamentEditResponse {
-    result: String
+    editedTournament: TournamentDTO
+}
+
+input TournamentJoiningRequest {
+    tournamentId: String!
+}
+
+type TournamentJoiningResponse {
+    tournamentId: String!
+    userName: String!
 }
 
 type Mutation {
-    authenticate(authenticationRequest: AuthenticationRequest!) : AuthenticationRepsonse!
-    register(registrationRequest: RegistrationRequest) : RegistrationResponse
+    register(userRegistrationRequest: UserRegistrationRequest) : UserRegistrationResponse
+    authenticate(userAuthenticationRequest: UserAuthenticationRequest!) : UserAuthenticationRepsonse!
     createTournament(tournamentCreationRequest: TournamentCreationRequest!): TournamentCreationResponse
     editTournament(tournamentEditRequest: TournamentEditRequest!): TournamentEditResponse
+    joinTournament(tournamentJoinRequest: TournamentJoiningRequest): TournamentJoiningResponse
 }
 

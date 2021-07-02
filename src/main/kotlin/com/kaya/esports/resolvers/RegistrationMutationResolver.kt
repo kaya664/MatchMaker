@@ -1,25 +1,17 @@
 package com.kaya.esports.resolvers
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver
-import com.kaya.esports.entity.User
+import com.kaya.esports.mapper.UserMapper
 import com.kaya.esports.resolvers.request.RegistrationRequest
 import com.kaya.esports.resolvers.response.RegistrationResponse
-import com.kaya.esports.service.`interface`.IUserService
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import com.kaya.esports.service.`interface`.IUserRegistrationService
 import org.springframework.stereotype.Component
+import java.lang.Exception
 
 @Component
-class RegistrationMutationResolver(private var userService: IUserService, private var passwordEncoder: BCryptPasswordEncoder) :
+class RegistrationMutationResolver(private var userRegistrationService: IUserRegistrationService) :
     GraphQLMutationResolver {
     fun register(registrationRequest: RegistrationRequest): RegistrationResponse {
-        if(registrationRequest != null) {
-            var user = userService.createNewUser(User(registrationRequest.userName, registrationRequest.name, registrationRequest.email, passwordEncoder.encode(registrationRequest.password), registrationRequest.country, null))
-            if(user != null) {
-                return RegistrationResponse("Success")
-            } else {
-                return RegistrationResponse("Fail, username exists")
-            }
-        }
-        return RegistrationResponse("Fail, request must not be null")
+        return userRegistrationService.register(registrationRequest)
     }
 }

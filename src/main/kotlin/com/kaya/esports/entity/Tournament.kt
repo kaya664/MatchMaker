@@ -17,5 +17,8 @@ data class Tournament(
     var price: BigDecimal,
     var status: String,
     var date: Date,
-    var explanation: String
+    var explanation: String,
+    var createdBy: String?,
+    var createdDate: Date?,
+    var updatedDate: Date?
 )

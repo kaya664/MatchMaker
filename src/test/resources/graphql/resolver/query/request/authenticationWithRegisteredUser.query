@@ -1,0 +1,5 @@
+mutation {
+  authenticate(userAuthenticationRequest: {user: {userName: "authenticationTestUser", password: "authenticationTestUser"}}) {
+    token
+  }
+}

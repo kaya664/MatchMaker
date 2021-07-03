@@ -1,0 +1,13 @@
+mutation {
+  editTournament(tournamentEditRequest: {tournament: {id: "tournamentIdAnonymous", name: "FIFA", gameName: "FIFA", paymentType: "Havale", paymentCurrency: "TL", eliminationType: "1vs1", status: "New", explanation: "csgo match"}}) {
+    editedTournament {
+      name
+      gameName
+      paymentType
+      paymentCurrency
+      eliminationType
+      status
+      explanation
+    }
+  }
+}

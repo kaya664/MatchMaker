@@ -1,0 +1,11 @@
+{
+  tournaments {
+		name
+		gameName
+		paymentType
+		paymentCurrency
+		eliminationType
+		status
+		explanation
+  }
+}

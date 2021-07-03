@@ -1,0 +1,15 @@
+{
+  "data": {
+    "tournaments": [
+      {
+        "name": "CS:GO Crazy Boys Flick Shots",
+        "gameName": "CS:GO",
+        "paymentType": "Crypto",
+        "paymentCurrency": "BTC",
+        "eliminationType": "1v1",
+        "status": "New",
+        "explanation": "Fun game"
+      }
+    ]
+  }
+}

@@ -1,6 +1,5 @@
 package com.kaya.esports.resolvers
 
-import com.coxautodev.graphql.tools.GraphQLMutationResolver
 import com.kaya.esports.service.TournamentParticipationService
 import com.kaya.esports.service.`interface`.ITournamentManagementService
 import com.kaya.esports.service.request.TournamentCreationRequest
@@ -9,6 +8,7 @@ import com.kaya.esports.service.request.TournamentJoiningRequest
 import com.kaya.esports.service.response.TournamentCreationResponse
 import com.kaya.esports.service.response.TournamentEditResponse
 import com.kaya.esports.service.response.TournamentJoiningResponse
+import graphql.kickstart.tools.GraphQLMutationResolver
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.stereotype.Component
 

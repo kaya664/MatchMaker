@@ -21,12 +21,7 @@ class JWTFilter(private var tokenProvider: TokenProvider) : OncePerRequestFilter
             val bearerString: String = request.getHeader("Authorization")
             if(!bearerString.isNullOrEmpty() && bearerString.startsWith("Bearer ")) {
                 jwt = bearerString.substring(7)
-                try {
-                    userName = tokenProvider.getUserFromToken(jwt)
-                } catch(e: Exception) {
-                    print(e.message)
-                    throw e
-                }
+                userName = tokenProvider.getUserFromToken(jwt)
             }
         }
 

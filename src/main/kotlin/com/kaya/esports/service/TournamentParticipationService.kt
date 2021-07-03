@@ -33,6 +33,6 @@ class TournamentParticipationService(private var tournamentParticipationReposito
             }
             return TournamentJoiningResponse(tournamentJoiningRequest.tournamentId, userName)
         }
-        throw AuthenticationCredentialsNotFoundException("Authenticated user cannot be found")
+        throw GenericGraphQLException("Authenticated user cannot be found", null)
     }
 }

@@ -1,0 +1,6 @@
+mutation {
+	joinTournament(tournamentJoinRequest: {tournamentId: "joinTournamentTwiceId"}) {
+    tournamentId
+    userName
+  }
+}

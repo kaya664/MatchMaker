@@ -1,0 +1,7 @@
+mutation {
+  register(userRegistrationRequest: {user: {userName: "alreadyRegisteredUser", password: "alreadyRegisteredUser"}}) {
+    registeredUser {
+    	userName
+    }
+  }
+}

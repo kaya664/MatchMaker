@@ -1,13 +1,12 @@
 package com.kaya.esports.security.jwt
 
 import com.kaya.esports.exception.GenericGraphQLException
-import io.jsonwebtoken.Claims
-import io.jsonwebtoken.Jwts
-import io.jsonwebtoken.SignatureAlgorithm
+import io.jsonwebtoken.*
 import io.jsonwebtoken.io.Decoders
 import io.jsonwebtoken.security.Keys
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.stereotype.Component
+import java.lang.IllegalArgumentException
 import java.security.Key
 import java.util.*
 
@@ -52,6 +51,10 @@ class TokenProvider {
         var claims: Claims
         try {
             claims = Jwts.parser().setSigningKey(key).parseClaimsJws(token).body
+        } catch(e: ExpiredJwtException) {
+            throw GenericGraphQLException("Token is expired", token)
+        } catch(e: UnsupportedJwtException) {
+            throw GenericGraphQLException("Token is built faulty", token)
         } catch(e: java.lang.Exception) {
             throw GenericGraphQLException("Token is not valid", token)
         }

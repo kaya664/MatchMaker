@@ -18,7 +18,10 @@ class TournamentMapper {
                 tournament.paymentCurrency,
                 tournament.eliminationType,
                 tournament.status,
-                tournament.explanation
+                tournament.explanation,
+                tournament.createdBy,
+                tournament.createdDate,
+                tournament.updatedDate
             )
         }
 
@@ -45,7 +48,10 @@ class TournamentMapper {
                 BigDecimal.ONE,
                 tournamentDTO.status,
                 Date(),
-                tournamentDTO.explanation
+                tournamentDTO.explanation,
+                tournamentDTO.createdBy,
+                tournamentDTO.createdDate,
+                tournamentDTO.updatedDate
             )
         }
     }

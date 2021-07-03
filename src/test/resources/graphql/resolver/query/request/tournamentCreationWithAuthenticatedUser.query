@@ -1,0 +1,9 @@
+mutation {
+  createTournament(tournamentCreationRequest: {tournament: {name: "CSGO Turnuvası", gameName: "CS:GO", paymentType: "Havale", paymentCurrency: "TL", eliminationType: "1vs1", status: "New", explanation: "csgo match"}}) {
+    createdTournament {
+      id
+      name
+      gameName
+    }
+  }
+}

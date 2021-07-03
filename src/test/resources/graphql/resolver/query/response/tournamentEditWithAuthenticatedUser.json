@@ -1,0 +1,15 @@
+{
+  "data": {
+    "editTournament": {
+      "editedTournament": {
+        "name": "FIFA",
+        "gameName": "FIFA",
+        "paymentType": "Havale",
+        "paymentCurrency": "TL",
+        "eliminationType": "1vs1",
+        "status": "New",
+        "explanation": "csgo match"
+      }
+    }
+  }
+}

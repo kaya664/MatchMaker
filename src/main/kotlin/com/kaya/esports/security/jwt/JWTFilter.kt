@@ -1,6 +1,5 @@
 package com.kaya.esports.security.jwt
 
-import com.kaya.esports.security.DomainUserDetailsService
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource
@@ -9,7 +8,6 @@ import org.springframework.web.filter.OncePerRequestFilter
 import javax.servlet.FilterChain
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
-import kotlin.Exception
 
 @Component
 class JWTFilter(private var tokenProvider: TokenProvider) : OncePerRequestFilter() {

@@ -3,7 +3,6 @@ package com.kaya.esports.exception
 import graphql.ErrorType
 import graphql.GraphQLError
 import graphql.language.SourceLocation
-import java.lang.RuntimeException
 
 open class GraphQLException(@JvmField override val message: String, private val invalidField: String?) :
     RuntimeException(message),

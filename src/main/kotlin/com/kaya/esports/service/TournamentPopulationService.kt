@@ -1,15 +1,11 @@
 package com.kaya.esports.service
 
 import com.kaya.esports.dto.TournamentDTO
-import com.kaya.esports.entity.Tournament
 import com.kaya.esports.exception.GenericGraphQLException
 import com.kaya.esports.mapper.TournamentMapper
 import com.kaya.esports.repository.TournamentRepository
 import com.kaya.esports.service.`interface`.ITournamentPopulationService
-import graphql.kickstart.tools.GraphQLQueryResolver
 import org.springframework.stereotype.Service
-import java.lang.Exception
-import java.util.*
 
 @Service
 class TournamentPopulationService(private var tournamentRepository: TournamentRepository): ITournamentPopulationService {

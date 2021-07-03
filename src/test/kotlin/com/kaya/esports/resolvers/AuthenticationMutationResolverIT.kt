@@ -2,8 +2,8 @@ package com.kaya.esports.resolvers
 
 import com.graphql.spring.boot.test.GraphQLResponse
 import com.graphql.spring.boot.test.GraphQLTestTemplate
-import com.kaya.esports.helper.TestHelper
 import com.kaya.esports.dto.UserDTO
+import com.kaya.esports.helper.TestHelper
 import com.kaya.esports.resolvers.request.RegistrationRequest
 import com.kaya.esports.service.UserRegistrationService
 import org.junit.jupiter.api.BeforeAll

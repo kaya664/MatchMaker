@@ -6,7 +6,6 @@ import com.kaya.esports.dto.TournamentDTO
 import com.kaya.esports.helper.TestHelper
 import com.kaya.esports.repository.TournamentRepository
 import com.kaya.esports.service.TournamentManagementService
-import com.kaya.esports.service.TournamentPopulationService
 import com.kaya.esports.service.request.TournamentCreationRequest
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test

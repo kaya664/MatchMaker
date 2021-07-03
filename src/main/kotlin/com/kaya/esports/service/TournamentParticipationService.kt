@@ -7,12 +7,7 @@ import com.kaya.esports.security.AuthenticationHelper
 import com.kaya.esports.service.`interface`.ITournamentParticipationService
 import com.kaya.esports.service.request.TournamentJoiningRequest
 import com.kaya.esports.service.response.TournamentJoiningResponse
-import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
-import org.springframework.security.core.context.SecurityContextHolder
-import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Service
-import java.lang.Exception
 import java.util.*
 
 @Service

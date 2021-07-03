@@ -11,11 +11,14 @@ import com.kaya.esports.service.request.TournamentEditRequest
 import com.kaya.esports.service.response.TournamentCreationResponse
 import com.kaya.esports.service.response.TournamentEditResponse
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import java.util.*
 
 @Service
 class TournamentManagementService(private var tournamentPopulationService: TournamentPopulationService, private var tournamentRepository: TournamentRepository) :
     ITournamentManagementService {
+
+    @Transactional
     override fun createTournament(tournamentCreationRequest: TournamentCreationRequest): TournamentCreationResponse {
         var tournamentEntity = TournamentMapper.tournamentDTOToTournamentEntity(tournamentCreationRequest.tournament)
         tournamentEntity.id = UUID.randomUUID().toString()
@@ -25,6 +28,7 @@ class TournamentManagementService(private var tournamentPopulationService: Tourn
         return TournamentCreationResponse(createdTournament)
     }
 
+    @Transactional
     override fun editTournament(tournamentEditRequest: TournamentEditRequest): TournamentEditResponse {
         var tournamentDTO = tournamentPopulationService.getTournament(tournamentEditRequest.tournament.id)
 

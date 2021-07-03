@@ -1,12 +1,13 @@
 package com.kaya.esports.security.jwt
 
 import com.kaya.esports.exception.GenericGraphQLException
-import io.jsonwebtoken.*
+import io.jsonwebtoken.Claims
+import io.jsonwebtoken.ExpiredJwtException
+import io.jsonwebtoken.Jwts
+import io.jsonwebtoken.UnsupportedJwtException
 import io.jsonwebtoken.io.Decoders
 import io.jsonwebtoken.security.Keys
-import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.stereotype.Component
-import java.lang.IllegalArgumentException
 import java.security.Key
 import java.util.*
 

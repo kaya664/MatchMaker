@@ -1,0 +1,146 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MatchMakerClient",
+		"_postman_id": "d4828311-aa3e-e363-f8d8-2045e973fc0a",
+		"description": "For accessing to graphql api of MatchMaker spring-boot/kotlin application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"url": "http://localhost:8080/graphql",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/graphql",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "mutation {\r\n  register(userRegistrationRequest: {user: {userName: \"aysmayk\", password: \"aysmayk\"}}) {\r\n    registeredUser {\r\n    \tuserName\r\n    }\r\n  }\r\n}"
+				},
+				"description": "registers new user"
+			},
+			"response": []
+		},
+		{
+			"name": "authenticate",
+			"request": {
+				"url": "http://localhost:8080/graphql",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/graphql",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "mutation {\r\n  authenticate(authenticationRequest: {userName:\"aysmayk\", password: \"aysmayk\"}) {\r\n    token\r\n  }\r\n}"
+				},
+				"description": "calls authentiaction endpoint"
+			},
+			"response": []
+		},
+		{
+			"name": "getTournaments",
+			"request": {
+				"url": "http://localhost:8080/graphql",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/graphql",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  tournaments {\r\n\t\tname\r\n\t\tgameName\r\n\t\tpaymentType\r\n\t\tpaymentCurrency\r\n\t\teliminationType\r\n\t\tstatus\r\n\t\texplanation\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "createTournament",
+			"request": {
+				"url": "http://localhost:8080/graphql",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/graphql",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyTmFtZSIsImlzcyI6Ik1hdGNoTWFrZXIiLCJpYXQiOjE2MjUxNjIxMDcsImV4cCI6MTYyNTE2MjIwN30.I9WoDHlUNqSzubWX_KDIoZ2R_JlBpbMy205Zc0OKRHM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "mutation {\n  createTournament(tournamentCreationRequest: {tournament: {name: \"CSGO Turnuvası\", gameName: \"CS:GO\", paymentType: \"Havale\", paymentCurrency: \"TL\", eliminationType: \"1vs1\", status: \"New\", explanation: \"csgo match\"}}) {\n    createdTournament {\n      id\n      name\n      gameName\n    }\n  }\n}\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "editTournament",
+			"request": {
+				"url": "http://localhost:8080/graphql",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/graphql",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "mutation {\r\n  editTournament(tournamentEditRequest: {tournament: {id: \"c2769f2b-f804-4daf-88fc-ac8313673cde\", name: \"CSGO Turnuvası\", gameName: \"CS:GO\", paymentType: \"Havale\", paymentCurrency: \"TL\", eliminationType: \"1vs1\", status: \"New\", explanation: \"csgo match\"}}) {\r\n    editedTournament {\r\n      id\r\n      name\r\n      gameName\r\n    }\r\n  }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "joinTournament",
+			"request": {
+				"url": "http://localhost:8080/graphql",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/graphql",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJheXNtYXlrIiwiaXNzIjoiTWF0Y2hNYWtlciIsImlhdCI6MTYyNTIyMDAxMiwiZXhwIjoxNjI1MjIzNjEyfQ.kYXd4yvs8VF_YGwb5uwANdiKbF9mmykDj3LQyRILzxut-g0_dfEox5pONtwFlmjGjCsSMbDGzlSTJ5Fyo2oUtg",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "mutation {\r\n\tjoinTournament(tournamentJoinRequest: {tournamentId: \"c2769f2b-f804-4daf-88fc-ac8313673cde\"}) {\r\n    tournamentId\r\n    userName\r\n  }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

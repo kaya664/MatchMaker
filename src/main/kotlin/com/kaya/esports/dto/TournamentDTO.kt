@@ -1,7 +1,5 @@
 package com.kaya.esports.dto
 
-import org.springframework.data.annotation.CreatedBy
-import java.math.BigDecimal
 import java.util.*
 
 data class TournamentDTO(

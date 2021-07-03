@@ -2,16 +2,13 @@ package com.kaya.esports.resolvers
 
 import com.graphql.spring.boot.test.GraphQLResponse
 import com.graphql.spring.boot.test.GraphQLTestTemplate
-import com.kaya.esports.dto.TournamentDTO
 import com.kaya.esports.dto.UserDTO
 import com.kaya.esports.entity.Tournament
 import com.kaya.esports.helper.TestHelper
 import com.kaya.esports.repository.TournamentRepository
 import com.kaya.esports.resolvers.request.AuthenticationRequest
 import com.kaya.esports.resolvers.request.RegistrationRequest
-import com.kaya.esports.service.TournamentManagementService
 import com.kaya.esports.service.UserRegistrationService
-import com.kaya.esports.service.request.TournamentCreationRequest
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance

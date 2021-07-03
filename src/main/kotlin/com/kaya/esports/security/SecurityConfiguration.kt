@@ -1,7 +1,6 @@
 package com.kaya.esports.security
 
 import com.kaya.esports.security.jwt.JWTFilter
-import graphql.GraphQL
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

@@ -1,7 +1,6 @@
 package com.kaya.esports.service
 
 import com.kaya.esports.exception.GenericGraphQLException
-import com.kaya.esports.exception.UserAlreadyExistsException
 import com.kaya.esports.exception.UsernameOrPasswordInvalidException
 import com.kaya.esports.mapper.UserMapper
 import com.kaya.esports.resolvers.request.AuthenticationRequest
